@@ -32,3 +32,13 @@ I、在 调试阶段一定要将 mode 调为 profile,两种方式：
 
 
 相关性能分析官网：https://flutter.cn/docs/development/tools/devtools/memory
+
+
+
+# 20210427
+## Future 的 基本理解 ，就是 js中的 Promise 一样；异步的处理
+
+## 对于 dart 语言 写法的 优化 总结： https://www.dartcn.com/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9D%A5%E6%9B%BF%E4%BB%A3-tear-off
+
+1、对于 函数的 默认值 赋值 用 = 不要用 : 
+1、不要 显示的为参数初始化 null 值，dart 语言 不存在 “未初始化内存”
