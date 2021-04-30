@@ -70,8 +70,24 @@ class _HomeState extends State<Home> {
                   child: Center(
                     child: Text('跳转到 echarts测试页面'),
                   ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('linePage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 echarts测试折线页面'),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('demo1Page');
+                  },
+                  child: Center(
+                    child: Text('跳转到 canvasDemo1'),
+                  ),
                 )
-                // echartsPage
+                // demo1Page
               ],
             )
           ],

@@ -9,6 +9,8 @@ import './pages/animationsEx.dart';
 import './pages/gestureEx.dart' show GesturePage;
 import './pages/testUpdateUi.dart';
 import './pages/Echarts/echarts.dart';
+import './pages/Echarts/lineChart.dart';
+import './pages/canvas/demo1.dart';
 
 /* 实现底部的菜单切换 以及 路由 和 导航 */
 
@@ -21,7 +23,9 @@ class App extends StatelessWidget {
         AnimationExComplex(),
     'updateUi': (BuildContext context, {parentContext}) => UpdateUi(),
     'echartsPage': (BuildContext context, {parentContext}) => EchartsPage(),
-    // EchartsPage
+    'linePage': (BuildContext context, {parentContext}) => LinePage(),
+    'demo1Page': (BuildContext context, {parentContext}) => Demo1Page(),
+    // Demo1Page
     'gesturePage': (BuildContext context, {parentContext}) => GesturePage(),
     'tabs': (BuildContext context, {parentContext}) => Tab()
   };

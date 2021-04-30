@@ -87,3 +87,14 @@ Colors类定义了很多颜色，可以直接使用，例如 Colors.blue,其实�
 
 ## 对于 图库 的 集成，在 github上 ，start 多的 是 fl_chart
 
+
+# 20210430 
+
+## 如果链接 不上 mumu 模拟器，用 adb 强行链接：adb connect 127.0.0.1:7555
+
+## 需要解决的 问题
+1、对于 整个项目 需要 引入 统一 共享的 仓库 ===》 实践：实现 动态主题切换；
+2、绘制 图形，并且 交互的 实现；（走势图感觉 可以使用 f_chart 实现）
+3、了解 CustomPainter 实现 自定义 ，用于实现 k线 和 走势图
+url: https://github.com/GitHubYhb/HBLineChart
+

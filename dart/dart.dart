@@ -47,12 +47,41 @@ void main() {
   // final ab = Tt(12);
   /* final child = Child();
   print('${child.a}${child.b}'); */
-  var aa = Testa();
+  /* var aa = Testa();
   print(aa.b);
-  print(aa is Test);
+  print(aa is Test); */
+  // print(a.toUpperCase());
+  /* var sb = StringBuffer();
+  sb
+    ..write('Use a StringBuffer for ')
+    ..writeAll(['efficient', 'string', 'creation'], ' ')
+    ..write('.');
+
+  var fullString = sb.toString(); */
+  // 执行表达式是返回 Test 的 实例
+  print(Test()
+    ..a = 1
+    ..b = 3
+    ..c = 3);
+  // 执行对象方法返回的是 方法的 值
+  var sortedColors =
+      ['red', 'green', 'orange', 'blue', 'black', 'pink'].sublist(1, 4)..sort();
+  print(sortedColors);
+  a.substring(0, 1);
+  var testL = [1, 2, 3, 4];
+  print(testL[0]);
 }
 
-abstract class Test {
+String a = 'asdff sfdfsdf';
+
+// 级联调用
+class Test {
+  late int a;
+  late int b;
+  late int c;
+}
+
+/* abstract class Test {
   late String a;
   String b = '123';
   void Testaa();
@@ -63,7 +92,7 @@ class Testa extends Test {
   void Testaa() {
     print('12323');
   }
-}
+} */
 
 /* 函数 不能 承载 class */
 /* class Tt {
