@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/componentComm/inheritedWidgetEx.dart';
 // import '../../pages/main-child.dart';
 
 class Home extends StatefulWidget {
@@ -20,6 +21,13 @@ class _HomeState extends State<Home> {
         appBar: AppBar(title: Text('HOME'), centerTitle: true),
         body: ListView(
           children: [
+            // 测试 inheritedWidget 的数据
+            Row(
+              children: [
+                Text('名字：${UserInfoWidget.of(context).userBean.name}'),
+                Text('地址：${UserInfoWidget.of(context).userBean.address}')
+              ],
+            ),
             Column(
               children: [
                 Center(
@@ -86,8 +94,24 @@ class _HomeState extends State<Home> {
                   child: Center(
                     child: Text('跳转到 canvasDemo1'),
                   ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('notificationWidget');
+                  },
+                  child: Center(
+                    child: Text('跳转到 notificationWidget'),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('eventBusWidget');
+                  },
+                  child: Center(
+                    child: Text('跳转到 eventBusWidget'),
+                  ),
                 )
-                // demo1Page
+                // eventBusWidget
               ],
             )
           ],

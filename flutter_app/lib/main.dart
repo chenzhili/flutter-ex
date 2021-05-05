@@ -11,6 +11,10 @@ import './pages/testUpdateUi.dart';
 import './pages/Echarts/echarts.dart';
 import './pages/Echarts/lineChart.dart';
 import './pages/canvas/demo1.dart';
+import './pages/componentComm/inheritedWidgetEx.dart';
+import './pages/componentComm/User_Bean.dart';
+import './pages/componentComm/notifcation.dart';
+import './pages/componentComm/eventbus.dart';
 
 /* 实现底部的菜单切换 以及 路由 和 导航 */
 
@@ -25,19 +29,26 @@ class App extends StatelessWidget {
     'echartsPage': (BuildContext context, {parentContext}) => EchartsPage(),
     'linePage': (BuildContext context, {parentContext}) => LinePage(),
     'demo1Page': (BuildContext context, {parentContext}) => Demo1Page(),
-    // Demo1Page
+    'notificationWidget': (BuildContext context, {parentContext}) =>
+        NotificationWidget(),
+    'eventBusWidget': (BuildContext context, {parentContext}) =>
+        EventBusWidget(),
+    // EventBusWidget
     'gesturePage': (BuildContext context, {parentContext}) => GesturePage(),
     'tabs': (BuildContext context, {parentContext}) => Tab()
   };
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.blue),
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: genGenerateRoute(this.routesConfig, parentContext: null),
-      initialRoute: 'tabs',
-    );
+    return UserInfoWidget(
+        userBean: UserBean(name: 'flutter', address: 'china'),
+        child: MaterialApp(
+          theme: ThemeData(primaryColor: Colors.blue),
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute:
+              genGenerateRoute(this.routesConfig, parentContext: null),
+          initialRoute: 'tabs',
+        ));
   }
 }
 

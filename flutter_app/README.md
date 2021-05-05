@@ -98,3 +98,13 @@ Colors类定义了很多颜色，可以直接使用，例如 Colors.blue,其实�
 3、了解 CustomPainter 实现 自定义 ，用于实现 k线 和 走势图
 url: https://github.com/GitHubYhb/HBLineChart
 
+
+# 20210503 
+## fl_chart 不能满足 需求，需要用 canvas 自定义；
+
+## 做组件的 通信
+1、InheritedWidget
+2、Notification
+3、event_bus // 这是 一个 用 StreamController 进行 二次封装的库
+4、provider // 使用 inhertedWidget 二次封装的库
+

@@ -70,6 +70,19 @@ class _LineChartSample2State extends State<LineChartSample2> {
 
   LineChartData mainData() {
     return LineChartData(
+      // 自定义 用户事件
+      lineTouchData: LineTouchData(
+          handleBuiltInTouches: true,
+          touchCallback: (LineTouchResponse lineTouch) {
+            print(lineTouch);
+          },
+          getTouchLineStart: (data, index) {
+            // print('$data-----$index');
+            return 0;
+          },
+          getTouchLineEnd: (data, index) {
+            return data.barWidth;
+          }),
       gridData: FlGridData(
         // 指 grid 的 网格是否需要
         show: false,

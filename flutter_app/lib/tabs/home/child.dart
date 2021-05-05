@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/componentComm/inheritedWidgetEx.dart';
 
 class HomeChild extends StatelessWidget {
   static const name = 'homeChild';
@@ -23,6 +24,8 @@ class HomeChild extends StatelessWidget {
             child: Row(
           children: [
             Text('HOME-Child'),
+            Text('名字：${UserInfoWidget.of(context).userBean.name}'),
+            Text('地址：${UserInfoWidget.of(context).userBean.address}')
           ],
         )));
   }
