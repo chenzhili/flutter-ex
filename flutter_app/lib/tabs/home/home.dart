@@ -110,8 +110,16 @@ class _HomeState extends State<Home> {
                   child: Center(
                     child: Text('跳转到 eventBusWidget'),
                   ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('providerBasePage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 providerBasePage'),
+                  ),
                 )
-                // eventBusWidget
+                // ProviderBasePage
               ],
             )
           ],

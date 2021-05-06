@@ -15,6 +15,7 @@ import './pages/componentComm/inheritedWidgetEx.dart';
 import './pages/componentComm/User_Bean.dart';
 import './pages/componentComm/notifcation.dart';
 import './pages/componentComm/eventbus.dart';
+import './pages/componentComm/provider/provider_base_page.dart';
 
 /* 实现底部的菜单切换 以及 路由 和 导航 */
 
@@ -33,7 +34,9 @@ class App extends StatelessWidget {
         NotificationWidget(),
     'eventBusWidget': (BuildContext context, {parentContext}) =>
         EventBusWidget(),
-    // EventBusWidget
+    'providerBasePage': (BuildContext context, {parentContext}) =>
+        ProviderBasePage(),
+    // ProviderBasePage
     'gesturePage': (BuildContext context, {parentContext}) => GesturePage(),
     'tabs': (BuildContext context, {parentContext}) => Tab()
   };
@@ -64,17 +67,23 @@ class _TabState extends State<Tab> {
   final tabs = [HomeNav(), Search()];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        // appBar: AppBar(title: Text('首页'), centerTitle: true),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: this.changeTabs,
-          currentIndex: curIndex,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: '搜索')
-          ],
-        ),
-        body: tabs[curIndex]);
+    return WillPopScope(
+      onWillPop: () async {
+        // 这里对于 tab 的 Navigator 还未解决
+        return false;
+      },
+      child: Scaffold(
+          // appBar: AppBar(title: Text('首页'), centerTitle: true),
+          bottomNavigationBar: BottomNavigationBar(
+            onTap: this.changeTabs,
+            currentIndex: curIndex,
+            items: [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页'),
+              BottomNavigationBarItem(icon: Icon(Icons.search), label: '搜索')
+            ],
+          ),
+          body: tabs[curIndex]),
+    );
   }
 
   changeTabs(index) {
