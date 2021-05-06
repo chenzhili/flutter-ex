@@ -59,7 +59,7 @@ void main() {
 
   var fullString = sb.toString(); */
   // 执行表达式是返回 Test 的 实例
-  print(Test()
+  /* print(Test()
     ..a = 1
     ..b = 3
     ..c = 3);
@@ -69,17 +69,21 @@ void main() {
   print(sortedColors);
   a.substring(0, 1);
   var testL = [1, 2, 3, 4];
-  print(testL[0]);
+  print(testL[0]); */
+  final test = [1, 2, 32, 3, 5, 5];
+  print(test.fold(0, (prev, int nextEl) {
+    return ((prev as int) + nextEl);
+  }));
 }
 
-String a = 'asdff sfdfsdf';
+/* String a = 'asdff sfdfsdf';
 
 // 级联调用
 class Test {
   late int a;
   late int b;
   late int c;
-}
+} */
 
 /* abstract class Test {
   late String a;
