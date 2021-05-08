@@ -6,7 +6,8 @@ import './home.dart';
 import './child.dart';
 
 class HomeNav extends StatefulWidget {
-  HomeNav({Key key}) : super(key: key);
+  GlobalKey navKey;
+  HomeNav({Key key, this.navKey}) : super(key: key);
 
   @override
   _HomeNavState createState() => _HomeNavState();

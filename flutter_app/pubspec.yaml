@@ -33,6 +33,7 @@ dependencies:
   fl_chart: ^0.35.0
   event_bus: ^2.0.0
   provider: ^5.0.0
+  flustars: ^2.0.1
 
 
 dev_dependencies:
