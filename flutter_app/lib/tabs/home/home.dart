@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/constraintsCom/index.dart';
 import 'package:flutter_app/pages/componentComm/inheritedWidgetEx.dart';
 // import '../../pages/main-child.dart';
 
@@ -25,7 +26,8 @@ class _HomeState extends State<Home> {
             Row(
               children: [
                 Text('名字：${UserInfoWidget.of(context).userBean.name}'),
-                Text('地址：${UserInfoWidget.of(context).userBean.address}')
+                Text('地址：${UserInfoWidget.of(context).userBean.address}'),
+                // ConstraiComs()
               ],
             ),
             Column(
@@ -118,8 +120,25 @@ class _HomeState extends State<Home> {
                   child: Center(
                     child: Text('跳转到 providerBasePage'),
                   ),
-                )
-                // ProviderBasePage
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('futureBldPage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 futureBldPage'),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('streamBldPage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 streamBldPage'),
+                  ),
+                ),
+                // ConstraiComs()
+                // streamBldPage
               ],
             )
           ],

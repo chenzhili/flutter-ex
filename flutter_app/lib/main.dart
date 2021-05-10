@@ -1,6 +1,8 @@
 import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/globalNavIns.dart';
+import 'package:flutter_app/pages/futureBuilderAndStreambuilder/futurebuilderEx.dart';
+import 'package:flutter_app/pages/futureBuilderAndStreambuilder/streambuilderEx.dart';
 import 'package:flutter_app/providerModel/themeColor.dart';
 import 'package:flutter_app/theme.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +45,9 @@ class App extends StatelessWidget {
         EventBusWidget(),
     'providerBasePage': (BuildContext context, {parentContext}) =>
         ProviderBasePage(),
-    // ProviderBasePage
+    'futureBldPage': (BuildContext context, {parentContext}) => FutureBldPage(),
+    'streamBldPage': (BuildContext context, {parentContext}) => StreamBldPage(),
+    // StreamBldPage
     'gesturePage': (BuildContext context, {parentContext}) => GesturePage(),
     'tabs': (BuildContext context, {parentContext}) => Tab()
   };

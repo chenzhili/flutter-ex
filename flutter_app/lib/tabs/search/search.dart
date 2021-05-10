@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/constraintsCom/index.dart';
 
 class Search extends StatefulWidget {
   Search({Key key}) : super(key: key);
@@ -10,8 +11,11 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('SEARCH')),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('search页面'),
+      ),
+      body: ConstraiComs(),
     );
   }
 }

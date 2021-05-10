@@ -122,3 +122,13 @@ url: https://github.com/GitHubYhb/HBLineChart
 ## 添加 flutter 的 工具库 ---- flustars
 
 ## 加入 主题，用 provider 实现，并且 用 flustars的spUtils 实现 持久化
+
+
+# 20210510 
+
+## 对于 盒模型 的 设置 宽高 不起作用的情况，这种问题的排除 就是在 ConstrainedBox 这种的 限制级 盒子 导致的 影响，如果想 用 sizedBox 起作用 可以 在外层包 UnconstrainedBox 使其生效；
+
+## 对于 滚动 的 理解；
+SingleChildScrollView：不支持 sliver 模式的方式的加载方式，这种 会将 所有 元素都会builder，包括不在 用户窗口内存在的；导致性能非常低
+
+sliver 模型的组件：会 根据 viewport 进行 加载
