@@ -121,14 +121,36 @@ url: https://github.com/GitHubYhb/HBLineChart
 
 ## 添加 flutter 的 工具库 ---- flustars
 
-## 加入 主题，用 provider 实现，并且 用 flustars的spUtils 实现 持久化
+## 加入 主题，用 provider 实现，并且 用 flustars 的 spUtils 实现 持久化
 
-
-# 20210510 
+# 20210510
 
 ## 对于 盒模型 的 设置 宽高 不起作用的情况，这种问题的排除 就是在 ConstrainedBox 这种的 限制级 盒子 导致的 影响，如果想 用 sizedBox 起作用 可以 在外层包 UnconstrainedBox 使其生效；
 
 ## 对于 滚动 的 理解；
-SingleChildScrollView：不支持 sliver 模式的方式的加载方式，这种 会将 所有 元素都会builder，包括不在 用户窗口内存在的；导致性能非常低
+
+SingleChildScrollView：不支持 sliver 模式的方式的加载方式，这种 会将 所有 元素都会 builder，包括不在 用户窗口内存在的；导致性能非常低
 
 sliver 模型的组件：会 根据 viewport 进行 加载
+
+# 20210511
+
+## 对于 flutter_staggered_grid_view 的 使用，用于解决 由于 flutter 自带的 GirdView 每个 item 大小一样的问题，做不了 错落或者 说是 web 的 grid 的布局样式
+
+## 用 CustomScrollView
+
+### 思考：能否用 customScrollView 实现 t 型报价
+
+### 定义： 此 组件 的 特点 ，可以 组合多个 scroll 组件 ，形成 一个 滚动行为，而不是 单独控制自己；
+
+### 注意：在包裹的 组件，必须是 实现或者说 继承自，sliver 组件
+
+#### 其中 SliverList 和 SliverGrid 就是我们前面提到的 Sliver 系列中的两员，除此之外，Sliver 家族还有常用的几个：
+
+**\* SliverAppBar：Creates a material design app bar that can be placed in a CustomScrollView. \*\***
+**\* SliverPersistentHeader：Creates a sliver that varies its size when it is scrolled to the start of a viewport. \*\***
+**\* SliverFillRemaining：Creates a sliver that fills the remaining space in the viewport. \*\***
+**\* SliverToBoxAdapter：Creates a sliver that contains a single box widget.（将普通组件，转换成 sliver 组件的方式） \*\***
+**\* SliverPadding：Creates a sliver that applies padding on each side of another sliver. \*\***
+
+### 实现 在 sliver 过程中 ，实现 标题的 sticky，可以用 SliverAppBar，其实 是 通过 SliverPersistentHeader 实现的

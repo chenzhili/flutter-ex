@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/globalNavIns.dart';
 import 'package:flutter_app/pages/futureBuilderAndStreambuilder/futurebuilderEx.dart';
 import 'package:flutter_app/pages/futureBuilderAndStreambuilder/streambuilderEx.dart';
+import 'package:flutter_app/pages/scroll/cusScroView.dart';
+import 'package:flutter_app/pages/scroll/cusScroltoPersistendHeader.dart';
+import 'package:flutter_app/pages/scroll/gridViewCom.dart';
+import 'package:flutter_app/pages/scroll/infinateScroll.dart';
 import 'package:flutter_app/providerModel/themeColor.dart';
 import 'package:flutter_app/theme.dart';
 import 'package:provider/provider.dart';
@@ -47,7 +51,13 @@ class App extends StatelessWidget {
         ProviderBasePage(),
     'futureBldPage': (BuildContext context, {parentContext}) => FutureBldPage(),
     'streamBldPage': (BuildContext context, {parentContext}) => StreamBldPage(),
-    // StreamBldPage
+    'infinateScrollPage': (BuildContext context, {parentContext}) =>
+        InfinateScrollPage(),
+    'gridViewCom': (BuildContext context, {parentContext}) => GridViewCom(),
+    'cusScrolPage': (BuildContext context, {parentContext}) => CusScrolPage(),
+    'sliverPersistentHeaderPage': (BuildContext context, {parentContext}) =>
+        SliverPersistentHeaderPage(),
+    // SliverPersistentHeaderPage
     'gesturePage': (BuildContext context, {parentContext}) => GesturePage(),
     'tabs': (BuildContext context, {parentContext}) => Tab()
   };

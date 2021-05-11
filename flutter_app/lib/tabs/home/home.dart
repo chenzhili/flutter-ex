@@ -137,8 +137,41 @@ class _HomeState extends State<Home> {
                     child: Text('跳转到 streamBldPage'),
                   ),
                 ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('infinateScrollPage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 infinateScrollPage'),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('gridViewCom');
+                  },
+                  child: Center(
+                    child: Text('跳转到 gridViewCom'),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('cusScrolPage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 cusScrolPage'),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext)
+                        .pushNamed('sliverPersistentHeaderPage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 sliverPersistentHeaderPage'),
+                  ),
+                ),
                 // ConstraiComs()
-                // streamBldPage
+                // sliverPersistentHeaderPage
               ],
             )
           ],
