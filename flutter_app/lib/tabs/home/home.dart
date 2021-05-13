@@ -170,8 +170,16 @@ class _HomeState extends State<Home> {
                     child: Text('跳转到 sliverPersistentHeaderPage'),
                   ),
                 ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('scrollControlCom');
+                  },
+                  child: Center(
+                    child: Text('跳转到 scrollControlCom'),
+                  ),
+                ),
                 // ConstraiComs()
-                // sliverPersistentHeaderPage
+                // scrollControlCom
               ],
             )
           ],

@@ -7,6 +7,7 @@ import 'package:flutter_app/pages/scroll/cusScroView.dart';
 import 'package:flutter_app/pages/scroll/cusScroltoPersistendHeader.dart';
 import 'package:flutter_app/pages/scroll/gridViewCom.dart';
 import 'package:flutter_app/pages/scroll/infinateScroll.dart';
+import 'package:flutter_app/pages/scroll/scrollControllerCom.dart';
 import 'package:flutter_app/providerModel/themeColor.dart';
 import 'package:flutter_app/theme.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +58,9 @@ class App extends StatelessWidget {
     'cusScrolPage': (BuildContext context, {parentContext}) => CusScrolPage(),
     'sliverPersistentHeaderPage': (BuildContext context, {parentContext}) =>
         SliverPersistentHeaderPage(),
-    // SliverPersistentHeaderPage
+    'scrollControlCom': (BuildContext context, {parentContext}) =>
+        ScrollControlCom(),
+    // ScrollControlCom
     'gesturePage': (BuildContext context, {parentContext}) => GesturePage(),
     'tabs': (BuildContext context, {parentContext}) => Tab()
   };
