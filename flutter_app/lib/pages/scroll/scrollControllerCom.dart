@@ -9,14 +9,18 @@ class ScrollControlCom extends StatefulWidget {
 
 class _ScrollControlComState extends State<ScrollControlCom> {
   bool showToTop = false;
+  ScrollController _controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ScrollController测试')),
-      body: ScrollCon(updateStatus: changeTopBtn),
-      floatingActionButton:
-          !showToTop ? null : Icon(Icons.arrow_circle_up, size: 50),
-    );
+        appBar: AppBar(title: Text('ScrollController测试')),
+        body: ScrollCon(updateStatus: changeTopBtn, controller: _controller),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              _controller.animateTo(0,
+                  duration: Duration(microseconds: 500), curve: Curves.easeIn);
+            },
+            child: !showToTop ? null : Icon(Icons.arrow_circle_up, size: 50)));
   }
 
   void changeTopBtn(bool status) {
@@ -28,7 +32,8 @@ class _ScrollControlComState extends State<ScrollControlCom> {
 
 class ScrollCon extends StatefulWidget {
   final Function updateStatus;
-  ScrollCon({Key key, this.updateStatus}) : super(key: key);
+  ScrollController controller;
+  ScrollCon({Key key, this.updateStatus, this.controller}) : super(key: key);
 
   @override
   _ScrollConState createState() => _ScrollConState();
@@ -37,14 +42,14 @@ class ScrollCon extends StatefulWidget {
 class _ScrollConState extends State<ScrollCon> {
   List list = List.filled(100, 1);
   /* controller 是为了 获取 当前 滚动的 相关信息 */
-  ScrollController _controller = ScrollController();
+  // ScrollController _controller = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    _controller.addListener(() {
+    widget.controller.addListener(() {
       // print(_controller.offset);
-      if (_controller.offset > 1000) {
+      if (widget.controller.offset > 1000) {
         widget.updateStatus(true);
       }
     });
@@ -53,14 +58,14 @@ class _ScrollConState extends State<ScrollCon> {
   @override
   void dispose() {
     super.dispose();
-    _controller.removeListener(() {});
+    widget.controller.removeListener(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: list.length,
-        controller: _controller,
+        controller: widget.controller,
         itemBuilder: (context, index) {
           return Padding(
               padding: EdgeInsets.all(10),
