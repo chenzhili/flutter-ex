@@ -1,6 +1,7 @@
 import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/globalNavIns.dart';
+import 'package:flutter_app/pages/associattion/index.dart';
 import 'package:flutter_app/pages/futureBuilderAndStreambuilder/futurebuilderEx.dart';
 import 'package:flutter_app/pages/futureBuilderAndStreambuilder/streambuilderEx.dart';
 import 'package:flutter_app/pages/scroll/cusScroView.dart';
@@ -60,7 +61,9 @@ class App extends StatelessWidget {
         SliverPersistentHeaderPage(),
     'scrollControlCom': (BuildContext context, {parentContext}) =>
         ScrollControlCom(),
-    // ScrollControlCom
+    'associationPage': (BuildContext context, {parentContext}) =>
+        AssociationPage(),
+    // AssociationPage
     'gesturePage': (BuildContext context, {parentContext}) => GesturePage(),
     'tabs': (BuildContext context, {parentContext}) => Tab()
   };

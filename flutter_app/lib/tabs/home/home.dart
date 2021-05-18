@@ -178,8 +178,16 @@ class _HomeState extends State<Home> {
                     child: Text('跳转到 scrollControlCom'),
                   ),
                 ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(parentContext).pushNamed('associationPage');
+                  },
+                  child: Center(
+                    child: Text('跳转到 associationPage'),
+                  ),
+                ),
                 // ConstraiComs()
-                // scrollControlCom
+                // associationPage
               ],
             )
           ],

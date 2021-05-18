@@ -15,12 +15,15 @@ class _ScrollControlComState extends State<ScrollControlCom> {
     return Scaffold(
         appBar: AppBar(title: Text('ScrollController测试')),
         body: ScrollCon(updateStatus: changeTopBtn, controller: _controller),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              _controller.animateTo(0,
-                  duration: Duration(microseconds: 500), curve: Curves.easeIn);
-            },
-            child: !showToTop ? null : Icon(Icons.arrow_circle_up, size: 50)));
+        floatingActionButton: !showToTop
+            ? null
+            : FloatingActionButton(
+                onPressed: () {
+                  _controller.animateTo(0,
+                      duration: Duration(microseconds: 500),
+                      curve: Curves.easeIn);
+                },
+                child: Icon(Icons.arrow_circle_up, size: 50)));
   }
 
   void changeTopBtn(bool status) {
