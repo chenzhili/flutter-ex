@@ -21,25 +21,38 @@ class _AssociationPageState extends State<AssociationPage>
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey _key = GlobalKey();
     return Scaffold(
       body: CustomScrollView(
         //  这里可能会用到 PageStorage 来保留滚动位置
         slivers: [
+          // SliverToBoxAdapter(
+          //   child: SizedBox(height: 0),
+          // ),
           SliverPersistentHeader(
             pinned: true,
             delegate: CustomTabs(
-                child: TabBar(
-                    labelColor: Colors.black,
-                    controller: _tabController,
-                    tabs: tabs.map((t) => Tab(child: Text('$t'))).toList())),
+                tabKey: _key,
+                child: Container(
+                    child: TabBar(
+                        key: _key,
+                        labelColor: Colors.black,
+                        controller: _tabController,
+                        tabs:
+                            tabs.map((t) => Tab(child: Text('$t'))).toList()))),
           ),
           SliverFillRemaining(
               child: TabBarView(
                   controller: _tabController,
                   children: tabs
-                      .map((e) => Column(
-                            children: [CusPane()],
-                            mainAxisSize: MainAxisSize.min,
+                      .map((e) => ListView(
+                            children: [
+                              CusPane(),
+                              CusPane(),
+                              CusPane(),
+                              CusPane()
+                            ],
+                            // mainAxisSize: MainAxisSize.min,
                           ))
                       .toList()))
         ],
@@ -49,8 +62,9 @@ class _AssociationPageState extends State<AssociationPage>
 }
 
 class CustomTabs extends SliverPersistentHeaderDelegate {
-  final TabBar child;
-  CustomTabs({@required this.child});
+  final Container child;
+  final GlobalKey tabKey;
+  CustomTabs({@required this.child, @required this.tabKey});
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -58,10 +72,10 @@ class CustomTabs extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => child.preferredSize.height;
+  double get maxExtent => (tabKey.currentWidget as TabBar).preferredSize.height;
 
   @override
-  double get minExtent => child.preferredSize.height;
+  double get minExtent => (tabKey.currentWidget as TabBar).preferredSize.height;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
@@ -193,8 +207,57 @@ class CusPane extends StatelessWidget {
                                         color: Color(0xFFFFFFFF),
                                         fontSize: 10))))
                       ],
-                    )
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                        width: double.infinity,
+                        height: 168,
+                        child: Image.asset('images/lake.jpg', fit: BoxFit.fill))
                   ],
+                ))
+              ],
+            ),
+            SizedBox(height: 15),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                InkWell(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(Icons.arrow_upward_outlined, size: 15),
+                      SizedBox(height: 8),
+                      Text('206'),
+                      SizedBox(height: 8),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 30),
+                InkWell(
+                  child: Row(
+                    children: [
+                      Icon(Icons.message, size: 15),
+                      SizedBox(height: 8),
+                      Text('1.8万'),
+                      SizedBox(height: 8),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 30),
+                InkWell(
+                  child: Row(
+                    children: [
+                      Icon(Icons.delete, size: 15),
+                      SizedBox(height: 8),
+                      Text('206'),
+                      SizedBox(height: 8),
+                    ],
+                  ),
+                ),
+                Expanded(
+                    child: Container(
+                  alignment: Alignment.centerRight,
+                  child: Icon(Icons.share),
                 ))
               ],
             )
