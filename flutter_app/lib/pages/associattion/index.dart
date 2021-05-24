@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './cusTabIndicator.dart';
 
 class AssociationPage extends StatefulWidget {
   AssociationPage({Key key}) : super(key: key);
@@ -33,13 +34,19 @@ class _AssociationPageState extends State<AssociationPage>
             pinned: true,
             delegate: CustomTabs(
                 tabKey: _key,
-                child: Container(
-                    child: TabBar(
-                        key: _key,
-                        labelColor: Colors.black,
-                        controller: _tabController,
-                        tabs:
-                            tabs.map((t) => Tab(child: Text('$t'))).toList()))),
+                child: TabBar(
+                    indicatorPadding: EdgeInsets.all(4),
+                    indicator: CustomRRecTabIndicator(
+                      radius: 5,
+                      color: Colors.white,
+                    ),
+                    unselectedLabelColor: Colors.black,
+                    unselectedLabelStyle:
+                        TextStyle(fontWeight: FontWeight.bold),
+                    key: _key,
+                    labelColor: Colors.black,
+                    controller: _tabController,
+                    tabs: tabs.map((t) => Tab(child: Text('$t'))).toList())),
           ),
           SliverFillRemaining(
               child: TabBarView(
@@ -62,20 +69,28 @@ class _AssociationPageState extends State<AssociationPage>
 }
 
 class CustomTabs extends SliverPersistentHeaderDelegate {
-  final Container child;
+  final TabBar child;
   final GlobalKey tabKey;
   CustomTabs({@required this.child, @required this.tabKey});
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return child;
+    print(child.preferredSize.height);
+    return Container(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [Container(color: Color(0xFFEDEEF0), child: child)],
+      ),
+      // color: Color(0xFFEDEEF0),
+      padding: EdgeInsets.fromLTRB(22, 48, 20, 2),
+    );
   }
 
   @override
-  double get maxExtent => (tabKey.currentWidget as TabBar).preferredSize.height;
+  double get maxExtent => child.preferredSize.height + 50;
 
   @override
-  double get minExtent => (tabKey.currentWidget as TabBar).preferredSize.height;
+  double get minExtent => child.preferredSize.height + 50;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
